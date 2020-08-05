@@ -1,0 +1,209 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="linechart.css" />
+    <script
+      type="text/javascript"
+      src="https://www.gstatic.com/charts/loader.js"
+      ></script>
+    
+    <script type="text/javascript">     
+        function cacl()
+       {
+           Income=document.getElementById("Income").value;
+           Expenditure=document.getElementById("Expenditure").value;
+           result=Income-Expenditure;
+           document.getElementById("Savings").value = result;
+          //  sub.result.value=result;
+       }
+   </script>
+    <!-- pie chart -->
+    <script type="text/javascript">
+      google.charts.load("current", { packages: ["corechart"] });
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ["Total", "products"],
+          ["phone", 44],
+          ["electronics", 40],
+          ["Charges", 1],
+          ["furniture", 9],
+          ["dontions", 2],
+          ["apparels", 1],
+          ["eating out", 1],
+          ["home applications", 0],
+          ["general", 0],
+          ["fuel", 0],
+          ["movie", 2]
+        ]);
+        var options = {
+          title: "Spending Tracker",
+          pieHole: 0.4,
+          backgroundColor: "#808080"
+        };
+        var chart = new google.visualization.PieChart(
+          document.getElementById("donutchart")
+        );
+        chart.draw(data, options);
+      }
+    </script>
+
+    <!-- line chart -->
+    <script type="text/javascript">
+      google.charts.load("current", { packages: ["corechart"] });
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ["Month", "Income", "Expenses"],
+          ["Aug", 1230, 940],
+          ["Sep", 1250, 840],
+          ["Oct", 1130, 540],
+          ["Nov", 1240, 740],
+          ["Dec", 1280, 640],
+          ["Jan", 1000, 400],
+          ["Feb", 1170, 460],
+          ["Mar", 1200, 1120],
+          ["Apr", 1030, 540],
+          ["May", 1000, 440],
+          ["Jun", 1100, 340],
+          ["Jul", 1030, 1140]
+        ]);
+
+        var options = {
+          title: "Spending Tracker",
+          curveType: "function",
+          legend: { position: "bottom" }
+        };
+
+        var chart = new google.visualization.LineChart(
+          document.getElementById("curve_chart")
+        );
+
+        chart.draw(data, options);
+      }
+    </script>
+
+
+  </head>
+  <body>
+    <h1>Transactions</h1>
+    <!-- tabel  -->
+    <div class="container trans">
+      <h2>Date<h2>
+        <select name="month">
+            <option value="month">Month</option>
+            <option value="January">January</option>
+            <option value="February">February</option>
+            <option value="April">April</option>
+            <option value="May">May</option>
+            <option value="June">June</option>
+            <option value="July">July</option>
+            <option value="August">August</option>
+            <option value="September">September</option>
+            <option value="October">October</option>
+            <option value="November">November</option>
+            <option value="December">December</option>
+        </select>          
+        <select name="year">
+            <option value="year"> Year </option>
+            <option value="2020"> 2020 </option>
+            <option value="2021"> 2021 </option>
+            <option value="2022"> 2022 </option>
+            <option value="2023"> 2023 </option>
+            <option value="2024"> 2024 </option>
+            <option value="2025"> 2025 </option>
+            <option value="2026"> 2026 </option>
+            <option value="2027"> 2027 </option>
+            <option value="2028"> 2028 </option>
+            <option value="2029"> 2029 </option>
+            <option value="2030"> 2030 </option>
+          </select>               
+        <select name="day">
+            <option value="day">Day</option>
+              <option value="1">1</option>  
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option> 
+              <option value="10">10</option> 
+              <option value="11">11</option> 
+              <option value="12">12</option> 
+              <option value="13">13</option> 
+              <option value="14">14</option> 
+              <option value="15">15</option> 
+              <option value="16">16</option> 
+              <option value="17">17</option> 
+              <option value="18">18</option> 
+              <option value="19">19</option> 
+              <option value="20">20</option> 
+              <option value="21">21</option> 
+              <option value="22">22</option> 
+              <option value="23">23</option> 
+              <option value="24">24</option> 
+              <option value="25">25</option> 
+              <option value="26">26</option> 
+              <option value="27">27</option> 
+              <option value="28">28</option> 
+              <option value="29">29</option> 
+              <option value="30">30</option>
+              <option value="31">31</option>
+        </select>
+      <form action="action_page.php" class="form">           
+        <div class="row">
+          <div class="col-25">
+            <label for="fname">INCOME</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="Income" name="Income" placeholder="">
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-25">
+            <label for="lname">EXPENSE</label>            
+          </div>
+            <div class="col-75">
+              <input type="text" id="Expenditure" name="Expenditure" placeholder="">
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <select id="country" name="country">
+              <option value="fuel">Fuel</option>
+              <option value="Phone">Phone</option>
+              <option value="Clothes">Clothes</option>
+              <option value="Shopping">Shopping</option>
+              <option value="Sports">Sports</option>
+              <option value="Travel">Travel</option>
+              <option value="Furniture">Furniture</option>
+              <option value="Eating out">Eating Out</option>
+              <option value="Entertainment">Entertainment</option>
+              <option value="Apperals">Apperals</option>
+              <option value="Donations">Phone</option>
+            </select>
+            </div>
+        </div>
+        <div class="row submit" >
+          <input type = "button" name="submit" value="submit" onclick="cacl()">
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="fname" style="text-transform: uppercase;">Balance</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="Savings" name="result" placeholder="">
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <h1>Summary</h1>
+    <div id="donutchart" class="round"></div>
+    <h1>Report</h1>
+    <div id="curve_chart" class="Line"></div>
+  </body>
+</html>
